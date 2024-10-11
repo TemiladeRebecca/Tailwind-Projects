@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +30,118 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+} */
+
+.toggle-checkbox:checked {
+  right: 0;
+  border-color: #68d391;
+}
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #68d391;
+}
+
+body {
+  @apply bg-white text-black;
+}
+
+/* Dark mode styles */
+.dark body {
+  @apply bg-gray-900 text-white;
+}
+
+#hero {
+  background-image: url('/images/desktop/image-hero.jpg');
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 580px) {
+  #hero {
+    background-image: url('/images/mobile/image-hero.jpg');
+    background-repaet: no-repeat;
+  }
+}
+
+.btn {
+  @apply px-10 py-2 font-bold tracking-widest uppercase border-2 border-black font-serif hover:bg-black hover:text-white;
+}
+
+.item {
+  @apply relative overflow-hidden md:w-1/4;
+}
+
+.itemGradient {
+  @apply absolute right-0 left-0 top-0 bottom-0 bg-gradient-to-b from-transparent to-gray-700 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70;
+}
+
+
+/* Hamburger Menu */
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+.button {
+  position: relative;
+  width: 8px;
+  height: 36px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: 2.5rem;
+}
+
+.button-menu {
+  position: absolute;
+  width: 36px;
+  height: 8px;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button.active {
+  transform: rotate(45deg); /* Rotates the vertical part */
 }
